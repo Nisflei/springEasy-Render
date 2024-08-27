@@ -11,6 +11,8 @@ name: Java CI with Maven
 on:
   pull_request:
     branches: [ "master" ]
+  push:
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -34,7 +36,7 @@ jobs:
       uses: johnbeynon/render-deploy-action@v0.0.8
       with:
         # ID of the service to deploy
-        service-id: srv-cr2at45svqrc73cm4neg   
+        service-id: cr2at45svqrc73cm4neg   
         # A Render API key
         api-key: o1n1VACzRmM 
              
