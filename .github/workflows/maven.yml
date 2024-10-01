@@ -36,4 +36,13 @@ jobs:
         service-id: srv-cr6qrttds78s73c2sb4g 
         api-key: rnd_D7dWpTNUbzAIOKXoQmdNjWg8n5Dk
           
-
+    - name: Deploy na EC2
+      run: |
+           echo "${{secrets.KEY_EC2_E}}" >private_key && chmod 400 private_key
+           ssh -o StrictHostKeyChecking=no -i "private_key" ubuntu@ec2-52-202-204-70.compute-1.amazonaws.com "
+                     cd /home/ubuntu/springEasy-Render &&
+                     git pull &&
+                     mvn clean package -DskipTests &&
+                     ./executar.sh "
+                     
+                     
